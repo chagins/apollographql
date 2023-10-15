@@ -1,1 +1,8 @@
-declare module "*.png"
+declare module "*.png";
+
+declare module "*.graphql" {
+  import { DocumentNode } from "graphql";
+  const Schema: DocumentNode;
+
+  export = Schema;
+}

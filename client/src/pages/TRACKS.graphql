@@ -1,0 +1,15 @@
+# standalone graphql variant
+query TRACKS {
+  tracksForHome {
+    id
+    title
+    author {
+      id
+      name
+      photo
+    }
+    thumbnail
+    length
+    modulesCount
+  }
+}

@@ -3,31 +3,41 @@ import { gql } from "../__generated__";
 import { useQuery } from "@apollo/client";
 import { Layout } from "../components";
 import TrackCard from "../containers/track-card";
-import QueryResult from '../components/query-result';
+import QueryResult from "../components/query-result";
+import TRACKS from "./TRACKS.graphql";
 
-const TRACKS = gql(`
-  query Query {
-    tracksForHome {
-      id
-      title
-      author {
-        id
-        name
-        photo
-      }
-      thumbnail
-      length
-      modulesCount
-    }
-  }
-`);
+import { TracksQuery } from "../__generated__/graphql";
+
+/**
+ * inline graphql variant
+ */
+// const TRACKS = gql(`
+//   query Query {
+//     tracksForHome {
+//       id
+//       title
+//       author {
+//         id
+//         name
+//         photo
+//       }
+//       thumbnail
+//       length
+//       modulesCount
+//     }
+//   }
+// `);
 
 /**
  * Tracks Page is the Catstronauts home page.
  * We display a grid of tracks fetched with useQuery with the TRACKS query
  */
 const Tracks = () => {
-  const { loading, error, data } = useQuery(TRACKS);
+  /**
+   * inline graphql variant
+   */
+  // const { loading, error, data } = useQuery(TRACKS);
+  const { loading, error, data } = useQuery<TracksQuery>(TRACKS);
 
   return (
     <Layout grid>
