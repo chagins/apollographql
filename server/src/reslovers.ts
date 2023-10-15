@@ -1,4 +1,5 @@
-export const resolvers = {
+import { Resolvers } from "./types";
+export const resolvers: Resolvers = {
   Query: {
     // need types (codegen)
     tracksForHome: (_, __, { dataSources }, info) => {
